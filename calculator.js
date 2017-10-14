@@ -23,7 +23,7 @@ var ac = document.querySelector('#ac');
 
 
 //Button Styling when clicked
-var keysArray = [zero, one, two, three, four, five, six, seven, eight, nine,  percent, times, plus, minus, dot, equals, ac, ce,];
+var keysArray = [zero, one, two, three, four, five, six, seven, eight, nine,  minus, dot, percent, times, plus,  equals, ac, ce,];
 
 
 var valZero = zero;
@@ -59,15 +59,37 @@ function pushToArray(e){
 
   valueArray.push(this.value);
   console.log(this.value);
+
   displayValue.textContent = this.value;
   displayCalculation.textContent = valueArray.join('');
+
+
+
+   console.log(valueArray);
 }
 
+
+function operatorPush(e){
+
+  if (valueArray.length === 0) {
+    return}
+  else
+    valueArray.push(this.value);
+    console.log(this.value);
+
+    displayValue.textContent = this.value;
+    displayCalculation.textContent = valueArray.join('');
+    console.log(valueArray);
+  }
 //Equals
 function sumArray(e){
 
 //***** ONLY SUM IF CONTAINS A NUMBER*****
+  if (valueArray.length === 0){
+    return;
+  }
 
+  else
   total = eval(valueArray.join(""));
   displayCalculation.textContent = valueArray.join('')+ "=" +total;
   valueArray = [total];
@@ -98,10 +120,18 @@ function clearLast(e){
   console.log(total);
 }
 //Push key value to array
-for (var i = 0; i <15; i ++){
+for (var i = 0; i <12; i ++){
 
-  keysArray[i].addEventListener("click", pushToArray);
+keysArray[i].addEventListener("click", pushToArray);
 }
+
+for (var i = 12; i <15; i ++){
+
+keysArray[i].addEventListener("click", operatorPush);
+}
+
+// 
+// dot.addEventListener("click", dotPush);
 
 //Evaluate array once equals is pushed
 equals.addEventListener("click", sumArray);
@@ -111,6 +141,8 @@ ac.addEventListener("click", clearAll);
 
 //CE - clear Last
 ce.addEventListener("click", clearLast);
+
+
 
 //Calculations end
 
