@@ -221,7 +221,7 @@ ce.addEventListener("click", clearLast);
 //Calculations end
 
 
-//***Last and First numbers clicked after equals//must be a number, else do nothing***
+
 
 
 
