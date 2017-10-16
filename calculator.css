@@ -1,34 +1,37 @@
+
+
+
+
+
 *:focus {outline:none}
 
 body {
-  background:#0fb8ad);
-  background: -webkit-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);/* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); /* Standard syntax */
-  font-family: sans-serif;
+
+  background:#f195e8);
+  background: -webkit-linear-gradient(141deg,  #f0b083 0%, #f195e8 51%,  #f0b083 75%);/* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(141deg,  #f0b083 0%, #f195e8 51%, #f0b083 75%); /*For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(141deg,  #f0b083 0%, #f195e8 51%, #f0b083 75%); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(141deg,  #f0b083 25%, #f195e8 51%, #f0b083 75%); /* Standard syntax */
+  font-family: 'Orbitron', sans-serif;
   height: 100vh;
   font-size: 1rem;
+ }
 
+  button {
 
+   color: rgb(249, 252, 252);
+   width: 23%;
+   padding-top: 5%;
+   padding-bottom: 5%;
+   margin-top: 2%;
+   margin-right: 1%;
+   font-size: 1rem;
+   border-radius: 5%;
+   box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #393838;
+   background-color: rgb(85, 89, 89);
+   border-bottom: solid 1px grey;
 
-}
-
-button {
- color: rgb(249, 252, 252);
- width: 23%;
- /*border: none;*/
- padding-top: 5%;
- padding-bottom: 5%;
- margin-top: 2%;
- margin-right: 1%;
- font-size: 1rem;
- border-radius: 5%;
-  box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #393838;
- background-color: rgb(85, 89, 89);
- border-bottom: solid 1px grey;
-
-}
+  }
 
 
 /*button,
@@ -48,9 +51,10 @@ a:visited {
 }*/
 
 #display-value {
-  font-size: 3.8rem;
+  font-size: 2.5rem;
   margin-bottom: 0;
-  margin-top: 2%;
+  margin-top: 6%;
+  
   text-align: right;
 
 }
@@ -112,7 +116,7 @@ padding-right: 2%;
 .container {
   width: 330px;
   height:500px;
-  margin: 10% auto;
+  margin: 20% auto;
   position: relative;
 }
 
@@ -153,9 +157,12 @@ padding-right: 2%;
 
 #display-calculation {
 
-  margin: 0;
+
   text-align: right;
-  margin-right: 2%;
+  margin-right: 1%;
+  margin-top: 4%;
+  color: rgb(79, 87, 88);
+  font-size: .9rem;
 
 }
 
