@@ -83,25 +83,32 @@ function pushToArray(e){
 
 function operatorPush(e){
 
+
   if (valueArray.length === 0 ) {
-    if (this.value !== '-'){
+    if (this.value === '-'){
+     displayCount += 1;
+     valueArray.push(this.value);
+     displayValue.textContent = this.value;
+     displayCalculation.textContent = valueArray.join('');
+     valueArrayLength = valueArray.length;
+    }
+     else if (this.value !== '-'){
         return}
     }
 
+    //Can remove code below? Dupes line 98?//
+
   if (valueArray[valueArrayLength-1] === this.value) {
     return;
-  }
+    }
 
-  if
-  // (valueArray.join('').charAt(valueArrayLength-1).match(operator))
+  if (valueArray.join('').charAt(((valueArray.join('')).length)-1).match(operator))
 
-    (valueArray.join('').charAt(((valueArray.join('')).length)-1).match(operator))
-
-   {
-
-    console.log(valueArray);
-    return;
-  }
+      {
+      console.log(valueArray);
+      return;
+      }
+ else {
 
     displayCount =0;
     valueArray.push(this.value);
@@ -110,7 +117,7 @@ function operatorPush(e){
     displayCalculation.textContent = valueArray.join('');
     console.log(valueArray);
     valueArrayLength = valueArray.length;
-
+}
 }
 
 //decimal point//
