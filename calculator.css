@@ -1,20 +1,15 @@
 
-
-
-
-
 *:focus {outline:none}
 
 body {
 
-  background:#f195e8);
-  background: -webkit-linear-gradient(141deg,  #f0b083 0%, #f195e8 51%,  #f0b083 75%);/* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(141deg,  #f0b083 0%, #f195e8 51%, #f0b083 75%); /*For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(141deg,  #f0b083 0%, #f195e8 51%, #f0b083 75%); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(141deg,  #f0b083 25%, #f195e8 51%, #f0b083 75%); /* Standard syntax */
-  font-family: 'Orbitron', sans-serif;
-  height: 100vh;
-  font-size: 1rem;
+background:#0fb8ad);
+background: -webkit-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);/* For Safari 5.1 to 6.0 */
+background: -o-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); /* For Opera 11.1 to 12.0 */
+background: -moz-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); /* For Firefox 3.6 to 15 */
+background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); /* Standard syntax */
+font-family: sans-serif;
+
  }
 
   button {
