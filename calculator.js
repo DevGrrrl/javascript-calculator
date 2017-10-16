@@ -8,18 +8,15 @@ var seven = document.querySelector('#seven');
 var eight = document.querySelector('#eight');
 var nine = document.querySelector('#nine');
 
-
-var ce = document.querySelector('#ce');
+var minus = document.querySelector('#minus');
 var percent = document.querySelector('#percent');
 var times = document.querySelector('#times');
 var plus = document.querySelector('#plus');
-var minus = document.querySelector('#minus');
 var dot = document.querySelector('#dot');
 
 var equals = document.querySelector('#equals');
-
 var ac = document.querySelector('#ac');
-
+var ce = document.querySelector('#ce');
 
 
 //Button Styling when clicked
@@ -28,7 +25,7 @@ var keysArray = [zero, one, two, three, four, five, six, seven, eight, nine,  mi
 var displayCount = 0;
 var operator = /\+|\=|\*|\/|\-/;
 
-var valZero = zero;
+//button styling//
 
 function buttonDown() {
    this.classList.add("clicked");
@@ -120,7 +117,6 @@ function operatorPush(e){
 
 function dotPush(e){
 
-  //Why not valueArray[valueArrayLength-1]?
   if (valueArray[valueArrayLength] === this.value){
     return;
   }
@@ -138,14 +134,9 @@ function dotPush(e){
 function sumArray(e){
 
 //***** ONLY SUM IF CONTAINS A NUMBER*****
-
-
   if (valueArray.length === 0){
     return;
   }
-
-
-
   total = eval(valueArray.join(""));
 
   if (total
@@ -192,6 +183,8 @@ function clearLast(e){
   console.log(valueArray);
   console.log(total);
 }
+
+
 //Push key value to array
 for (var i = 0; i <10; i ++){
 
