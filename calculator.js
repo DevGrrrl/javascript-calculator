@@ -140,21 +140,24 @@ function sumArray(e){
   }
   total = eval(valueArray.join(""));
 
-  if (total
-    === Infinity){
-
+  if (total === Infinity){
         displayCalculation.textContent = "error";
         valueArray = [];
         displayValue.textContent = "error";
         total === 0;
-      }
+        }
+      else if (total.toString().length >8) {
+            displayValue.textContent = 0;
+            displayCalculation.textContent = "Digit Limit Met";
+            displayCount = 0;
+            valueArray =[];
+            }
+      else {
 
-  else {
-
-  displayCalculation.textContent = valueArray.join('')+ "=" +total;
-  valueArray = [total];
-  displayValue.textContent = total;
-  }
+            displayCalculation.textContent = valueArray.join('')+ "=" +total;
+            valueArray = [total];
+            displayValue.textContent = total;
+            }
 
 }
 
