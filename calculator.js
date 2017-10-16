@@ -123,6 +123,7 @@ function dotPush(e){
   else {
     valueArray.push(this.value);
     console.log(this.value);
+     displayCount += 1;
 
     displayValue.textContent = this.value;
     displayCalculation.textContent = valueArray.join('');
