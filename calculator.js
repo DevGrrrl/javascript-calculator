@@ -25,6 +25,7 @@ var keysArray = [zero, one, two, three, four, five, six, seven, eight, nine,  mi
 var displayCount = 0;
 var operator = /\+|\=|\*|\/|\-/;
 var displayArr = [];
+var equalsTrack = 0;
 //button styling//
 
 function buttonDown() {
@@ -66,9 +67,20 @@ function pushToArray(e){
   displayCalculation.textContent = "Digit Limit Met";
   displayCount = 0;
   valueArray =[];
+
 }}
 
+if (equalsTrack === 1){
+   equalsTrack = 0;
+   valueArray = [this.value];
+   displayArr = [this.value];
+   displayValue.textContent = valueArray;
+   displayCalculation.textContent = this.value;
+}
+
+
  else {
+  equalsTrack = 0;
   valueArray.push(this.value);
   displayArr.push(this.value);
   displayValue.textContent = displayArr.join('');
@@ -85,6 +97,7 @@ function pushToArray(e){
 
 function operatorPush(e){
 
+  equalsTrack = 0;
 
   if (valueArray.length === 0 ) {
     if (this.value === '-'){
@@ -105,6 +118,7 @@ function operatorPush(e){
     return;
     }
 
+
   if
 // if an operator is pushed more than once at a time //
    (valueArray.join('').charAt(((valueArray.join('')).length)-1).match(operator))
@@ -115,6 +129,7 @@ function operatorPush(e){
         console.log(displayArr);
       return;
       }
+
  else {
 
     displayCount = 0;
@@ -151,7 +166,7 @@ function dotPush(e){
 
 //Equals
 function sumArray(e){
-
+  equalsTrack = 1;
 //***** ONLY SUM IF CONTAINS A NUMBER*****
   if (valueArray.length === 0){
     return;
