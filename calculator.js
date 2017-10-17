@@ -24,7 +24,7 @@ var keysArray = [zero, one, two, three, four, five, six, seven, eight, nine,  mi
 
 var displayCount = 0;
 var operator = /\+|\=|\*|\/|\-/;
-
+var displayArr = [];
 //button styling//
 
 function buttonDown() {
@@ -66,17 +66,19 @@ function pushToArray(e){
   displayCalculation.textContent = "Digit Limit Met";
   displayCount = 0;
   valueArray =[];
-  console.log(displayCount);
 }}
 
  else {
   valueArray.push(this.value);
-  console.log(this.value);
-  displayValue.textContent = this.value;
+  displayArr.push(this.value);
+  displayValue.textContent = displayArr.join('');
+  // displayValue.textContent = this.value;
   displayCalculation.textContent = valueArray.join('');
-  console.log(displayCount);
   displayMax = (valueArray.join('')).length;
   valueArrayLength = valueArray.length;
+  console.log(valueArray);
+  console.log(total);
+  console.log(displayArr);
 }
 
 }
@@ -87,6 +89,7 @@ function operatorPush(e){
   if (valueArray.length === 0 ) {
     if (this.value === '-'){
      displayCount += 1;
+     displayArr.push(this.value);
      valueArray.push(this.value);
      displayValue.textContent = this.value;
      displayCalculation.textContent = valueArray.join('');
@@ -102,21 +105,27 @@ function operatorPush(e){
     return;
     }
 
-  if (valueArray.join('').charAt(((valueArray.join('')).length)-1).match(operator))
+  if
+// if an operator is pushed more than once at a time //
+   (valueArray.join('').charAt(((valueArray.join('')).length)-1).match(operator))
 
       {
-      console.log(valueArray);
+        console.log(valueArray);
+        console.log(total);
+        console.log(displayArr);
       return;
       }
  else {
 
-    displayCount =0;
+    displayCount = 0;
     valueArray.push(this.value);
-    console.log(this.value);
     displayValue.textContent = this.value;
     displayCalculation.textContent = valueArray.join('');
-    console.log(valueArray);
+    displayArr = [];
     valueArrayLength = valueArray.length;
+    console.log(valueArray);
+    console.log(total);
+    console.log(displayArr);
 }
 }
 
@@ -129,12 +138,14 @@ function dotPush(e){
   }
   else {
     valueArray.push(this.value);
-    console.log(this.value);
-     displayCount += 1;
-
+    displayCount += 1;
+    displayArr.push(this.value);
+    //add preceeding digitst to displayValue;
     displayValue.textContent = this.value;
     displayCalculation.textContent = valueArray.join('');
     console.log(valueArray);
+    console.log(total);
+    console.log(displayArr);
   }
 }
 
@@ -150,23 +161,28 @@ function sumArray(e){
   if (total === Infinity){
         displayCalculation.textContent = "error";
         valueArray = [];
+        displayArr = [];
         displayValue.textContent = "error";
         total === 0;
-        }
-      else if (total.toString().length >8) {
-            displayValue.textContent = 0;
-            displayCalculation.textContent = "Digit Limit Met";
-            displayCount = 0;
-            valueArray =[];
+      //   }
+      // else if (total.toString().length >8) {
+      //       displayValue.textContent = 0;
+      //       displayCalculation.textContent = "Digit Limit Met";
+      //       displayCount = 0;
+      //       valueArray =[];
+      //       displayArr = [];
             }
-      else {
+      else  {
 
             displayCalculation.textContent = valueArray.join('')+ "=" +total;
             valueArray = [total];
+            displayArr = [total];
             displayValue.textContent = total;
+
             }
 
 }
+
 
 
 function clearAll(e){
@@ -176,23 +192,28 @@ function clearAll(e){
  displayCalculation.textContent = 0;
  displayCount = 0;
  valueArrayLength = 0;
+ displayArr = [];
  console.log(valueArray);
  console.log(total);
+ console.log(displayArr);
 }
 
 function clearLast(e){
   displayCount = 0;
   valueArray.pop();
   valueArrayLength = valueArray.length;
+  displayArr.pop();
+
   if (valueArray.length === 0){
     displayValue.textContent = 0;
     displayCalculation.textContent = 0;
   }
    else {displayCalculation.textContent = valueArray.join('')};
+   displayValue.textContent = 0;
 
-
-  console.log(valueArray);
-  console.log(total);
+   console.log(valueArray);
+   console.log(total);
+   console.log(displayArr);
 }
 
 
