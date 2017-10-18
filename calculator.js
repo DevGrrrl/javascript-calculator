@@ -148,9 +148,25 @@ function operatorPush(e){
 
 function dotPush(e){
 
+  var dec = [];
+  var slice;
+
   if (valueArray[valueArrayLength] === this.value){
     return;
   }
+  //no more than one decimal point per number
+  for (var i = 1; i < 8; i++){
+    //replace with reg exp?
+    if (valueArray[valueArrayLength-i] === "+" || valueArray[valueArrayLength-i] === "-" || valueArray[valueArrayLength-i] === "*" || valueArray[valueArrayLength-i] === "/"){
+      dec.push(i);
+    }
+  }
+  slice = valueArray.slice(-dec[0]);
+
+  if (slice.indexOf(".") !== -1){
+    return
+  }
+
   else {
     valueArray.push(this.value);
     displayCount += 1;
@@ -171,7 +187,7 @@ function sumArray(e){
   if (valueArray.length === 0){
     return;
   }
-  total = eval(valueArray.join(""));
+  total = (eval(valueArray.join(""))).toFixed(2);
 
   if (total === Infinity){
         displayCalculation.textContent = "error";
@@ -242,6 +258,18 @@ for (var i = 10; i <14; i ++){
 
 keysArray[i].addEventListener("click", operatorPush);
 }
+
+
+
+
+//decimalPlace duplication
+//
+// (valueArray.join('').charAt(((valueArray.join('')).length)-1).match(operator))
+
+
+// return slice;
+
+// }
 
 
 
