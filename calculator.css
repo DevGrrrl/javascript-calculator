@@ -1,8 +1,8 @@
 
 *:focus {outline:none}
-html {
+/*html {
   min-height: 100%;
-}
+}*/
 body {
 
   background:#0fb8ad);
@@ -11,6 +11,7 @@ body {
   background: -moz-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); /* For Firefox 3.6 to 15 */
   background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); /* Standard syntax */
   font-family: 'Orbitron', sans-serif;
+  min-height: 100vh;
 
  }
 
