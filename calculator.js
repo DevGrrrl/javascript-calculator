@@ -26,6 +26,7 @@ var displayCount = 0;
 var operator = /\+|\=|\*|\/|\-/;
 var displayArr = [];
 var equalsTrack = 0;
+var operatorTrack = 0;
 //button styling//
 
 function buttonDown() {
@@ -60,6 +61,7 @@ displayCalculation.textContent = 0;
 function pushToArray(e){
 
  displayCount += 1;
+ operatorTrack = 0;
 
  if (displayCount > 8){
   if (this !== /\+|\=|\*|\/|\-/){
@@ -68,9 +70,10 @@ function pushToArray(e){
   displayCount = 0;
   valueArray =[];
 
+
 }}
 
-if (equalsTrack === 1){
+ else if (equalsTrack === 1){
    equalsTrack = 0;
    valueArray = [this.value];
    displayArr = [this.value];
@@ -98,6 +101,7 @@ if (equalsTrack === 1){
 function operatorPush(e){
 
   equalsTrack = 0;
+  operatorTrack = 1;
 
   if (valueArray.length === 0 ) {
     if (this.value === '-'){
@@ -182,12 +186,24 @@ function dotPush(e){
 
 //Equals
 function sumArray(e){
-  equalsTrack = 1;
-//***** ONLY SUM IF CONTAINS A NUMBER*****
-  if (valueArray.length === 0){
+
+
+//***** ONLY SUM IF CONTAINS A NUMBER or last value is a number*****
+
+  if (valueArrayLength === 0 ){
+  return;
+  }
+
+   else if (valueArray[valueArrayLength-1] === "+" ||
+            valueArray[valueArrayLength-1] === "-" ||
+            valueArray[valueArrayLength-1] === "/" ||
+            valueArray[valueArrayLength-1] === "*"){
+
     return;
   }
-  total = (eval(valueArray.join(""))).toFixed(2);
+
+
+
 
   if (total === Infinity){
         displayCalculation.textContent = "error";
@@ -195,16 +211,18 @@ function sumArray(e){
         displayArr = [];
         displayValue.textContent = "error";
         total === 0;
-      //   }
-      // else if (total.toString().length >8) {
-      //       displayValue.textContent = 0;
-      //       displayCalculation.textContent = "Digit Limit Met";
-      //       displayCount = 0;
-      //       valueArray =[];
-      //       displayArr = [];
-            }
-      else  {
+        }
 
+  if (total.toString().length >8) {
+            displayValue.textContent = 0;
+            displayCalculation.textContent = "Digit Limit Met";
+            displayCount = 0;
+            valueArray =[];
+            displayArr = [];
+            }
+  else  {
+            equalsTrack = 1;
+            total = (eval(valueArray.join("")));
             displayCalculation.textContent = valueArray.join('')+ "=" +total;
             valueArray = [total];
             displayArr = [total];
@@ -218,6 +236,7 @@ function sumArray(e){
 
 function clearAll(e){
  valueArray = [];
+ equalsTrack = 0;
  total = 0;
  displayValue.textContent = 0;
  displayCalculation.textContent = 0;
