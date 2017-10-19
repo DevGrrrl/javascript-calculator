@@ -295,9 +295,10 @@ function clearLast(e){
     }
        else {
          displayCalculation.textContent = valueArray.join('');
+         displayValue.textContent = valueArray[valueArrayLength-1];
        }
 
-     displayValue.textContent = 0;
+
   }
 
 
