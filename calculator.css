@@ -132,7 +132,7 @@ padding-right: 2%;
 }
 
 .clicked {
-transform: translate(0, -2px);
+transform: translate(2px,  2px);
  }
 
 /*Aborted background animation
